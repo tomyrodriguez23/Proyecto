@@ -2,19 +2,19 @@ package com.back.back.service;
 
 import com.back.back.exception.BadRequestException;
 import com.back.back.exception.ResourceNotFoundException;
-import com.back.back.model.Caracteristica;
-import com.back.back.model.Categoria;
+import com.back.back.model.*;
+import com.back.back.model.DTO.CaracteristicaDTO;
+import com.back.back.model.DTO.ImagenDTO;
 import com.back.back.model.DTO.ProductoDTO;
-import com.back.back.model.Producto;
 import com.back.back.repository.CaracteristicaRepository;
 import com.back.back.repository.ProductoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class ProductoService {
@@ -24,8 +24,7 @@ public class ProductoService {
     @Autowired
     ObjectMapper mapper;
 
-    @Autowired
-    CaracteristicaRepository caracteristicaRepository;
+
 
     public ProductoService(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
@@ -33,6 +32,28 @@ public class ProductoService {
 
 
     public Producto agregarProducto(ProductoDTO productoDTO) throws BadRequestException {
+//        Producto producto = new Producto();
+//        Categoria categoria = new Categoria();
+//        Ciudad ciudad = new Ciudad();
+//        Set<Caracteristica> caracteristicas = new HashSet<>();
+//        Set<Imagen> setImagen = new HashSet<>();
+//        BeanUtils.copyProperties(productoDTO.getCategoria(),categoria);
+//        for (CaracteristicaDTO c : productoDTO.getCaracteristicas()){
+//            Caracteristica caracteristica = new Caracteristica();
+//            BeanUtils.copyProperties(c,caracteristica);
+//            caracteristicas.add(caracteristica);
+//        }
+//        for (ImagenDTO img : productoDTO.getSetImagen()){
+//            Imagen imagen = new Imagen();
+//            BeanUtils.copyProperties(img,imagen);
+//            setImagen.add(imagen);
+//        }
+//        BeanUtils.copyProperties(productoDTO.getCiudad(),ciudad);
+//        producto.setTitulo(productoDTO.getTitulo());
+//        producto.setCategoria(categoria);
+//        producto.setSetImagen(setImagen);
+//        producto.setCaracteristicas(caracteristicas);
+//        producto.setCiudad(ciudad);
         Producto producto = mapper.convertValue(productoDTO, Producto.class);
         return productoRepository.save(producto);
     }

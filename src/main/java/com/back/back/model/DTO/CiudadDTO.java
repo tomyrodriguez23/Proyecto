@@ -1,11 +1,10 @@
 package com.back.back.model.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
-@Data
+@Getter
+@Setter
 public class CiudadDTO {
 
     private Long id;

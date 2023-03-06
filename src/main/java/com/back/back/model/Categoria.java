@@ -1,14 +1,15 @@
 package com.back.back.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "categorias")
 public class Categoria {
@@ -26,8 +27,13 @@ public class Categoria {
     @Column
     private String urlImagen;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "categoria",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Producto> productos = new HashSet<>();
+
+    public void setProductos(Set<Producto> productos) {
+        this.productos = productos;
+        this.productos.stream().peek(producto -> producto.setCategoria(this)).collect(Collectors.toSet());
+    }
 
 }

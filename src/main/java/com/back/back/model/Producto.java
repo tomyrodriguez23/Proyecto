@@ -2,17 +2,17 @@ package com.back.back.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "productos")
 public class Producto {
@@ -40,15 +40,13 @@ public class Producto {
     )
     private Set<Caracteristica> caracteristicas = new HashSet<>();
 
-//    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-//    @JoinTable(
-//            name = "productos_caracteristicas",
-//            joinColumns = @JoinColumn(name = "id_producto"),
-//            inverseJoinColumns = @JoinColumn(name = "id_caracteristica")
-//    )
-//    private Set<Caracteristica> caracteristicas = new HashSet<>();
 
-//    @OneToMany(mappedBy = "producto",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//    private List<Imagen> listImagen = new ArrayList<>();
+    @OneToMany(mappedBy = "producto",fetch = FetchType.LAZY,cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Imagen> setImagen;
 
+
+    public void setSetImagen(Set<Imagen> setImagen) {
+        this.setImagen = setImagen;
+        this.setImagen.stream().peek(imagen -> imagen.setProducto(this)).collect(Collectors.toSet());
+    }
 }

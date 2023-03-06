@@ -203,3 +203,11 @@
 [2023-03-04 12:31:17] [ INFO ] [CaracteristicaService:32] Se inicio una operacion de guardado de la caracteristica con nombre wifi
 [2023-03-04 12:31:20] [ INFO ] [CiudadService:29] Se inicio una operacion de guardado de la ciudad con titulo Cordoba
 [2023-03-04 12:31:26] [ INFO ] [CaracteristicaService:32] Se inicio una operacion de guardado de la caracteristica con nombre wifi
+[2023-03-04 12:56:24] [ INFO ] [CaracteristicaService:32] Se inicio una operacion de guardado de la caracteristica con nombre wifi
+[2023-03-04 14:54:47] [ INFO ] [CaracteristicaService:48] Se inicio una operacion de listado de caracteristicas 
+[2023-03-04 14:55:29] [ INFO ] [CaracteristicaService:32] Se inicio una operacion de guardado de la caracteristica con nombre wifi
+[2023-03-04 14:55:31] [ INFO ] [CaracteristicaService:32] Se inicio una operacion de guardado de la caracteristica con nombre wifi
+[2023-03-04 14:55:37] [ INFO ] [CiudadService:29] Se inicio una operacion de guardado de la ciudad con titulo Cordoba
+[2023-03-04 14:55:39] [ INFO ] [CategoriaService:33] Se inicio una operacion de guardado de la categoria con titulo Departamentos
+[2023-03-04 14:56:21] [ INFO ] [ImagenService:29] Se inicio una operacion de guardado de la imagen con titulo departamentos
+[2023-03-04 15:18:55] [ INFO ] [CategoriaService:50] Se inicio una operacion de listado de categorias 

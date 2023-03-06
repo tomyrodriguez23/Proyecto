@@ -1,11 +1,11 @@
 package com.back.back.model.DTO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 public class ProductoDTO{
 
     private Long id;
@@ -13,6 +13,6 @@ public class ProductoDTO{
     private CategoriaDTO categoria;
     private CiudadDTO ciudad;
     private Set<CaracteristicaDTO> caracteristicas;
-//    private List<ImagenDTO> listImagen;
+    private Set<ImagenDTO> setImagen;
 
 }
